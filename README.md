@@ -1,4 +1,4 @@
-# s3gof3r  [![Build Status](https://travis-ci.org/rlmcpherson/s3gof3r.svg?branch=master)](https://travis-ci.org/rlmcpherson/s3gof3r) [![GoDoc](https://godoc.org/github.com/rlmcpherson/s3gof3r?status.png)](https://godoc.org/github.com/rlmcpherson/s3gof3r)
+# s3gof3r  [![Build Status](https://travis-ci.org/github/github/s3gof3r.svg?branch=master)](https://travis-ci.org/github/github/s3gof3r) [![GoDoc](https://godoc.org/github.com/github/s3gof3r?status.png)](https://godoc.org/github.com/github/s3gof3r)
 
 s3gof3r provides fast, parallelized, pipelined streaming access to Amazon S3. It includes a command-line interface: `gof3r`.
 
@@ -46,15 +46,15 @@ These tests were performed on an m1.xlarge EC2 instance with a virtualized 1 Gig
 
 s3gof3r is written in Go and requires go 1.5 or later. It can be installed with `go get` to download and compile it from source. To install the command-line tool, `gof3r` set `GO15VENDOREXPERIMENT=1` in your environment:
 
-    $ go get github.com/rlmcpherson/s3gof3r/gof3r
+    $ go get github.com/github/s3gof3r/gof3r
     
 To install just the package for use in other Go programs:
 
-    $ go get github.com/rlmcpherson/s3gof3r
+    $ go get github.com/github/s3gof3r
 
 ### Release Binaries
 
-To try the latest release of the gof3r command-line interface without installing go, download the statically-linked binary for your architecture from **[Github Releases](https://github.com/rlmcpherson/s3gof3r/releases).**
+To try the latest release of the gof3r command-line interface without installing go, download the statically-linked binary for your architecture from **[Github Releases](https://github.com/github/s3gof3r/releases).**
 
 
 
@@ -90,9 +90,9 @@ gof3r also supports [IAM role](http://docs.aws.amazon.com/AWSEC2/latest/UserGuid
  
 ## Documentation
 
-**s3gof3r package:** See the [godocs](http://godoc.org/github.com/rlmcpherson/s3gof3r) for api documentation.
+**s3gof3r package:** See the [godocs](http://godoc.org/github.com/github/s3gof3r) for api documentation.
 
-**gof3r cli :**  [godoc](http://godoc.org/github.com/rlmcpherson/s3gof3r/gof3r) and [gof3r man page](http://randallmcpherson.com/gof3r.html)
+**gof3r cli :**  [godoc](http://godoc.org/github.com/github/s3gof3r/gof3r) and [gof3r man page](http://randallmcpherson.com/gof3r.html)
 
 
 Have a question? Ask it on the [s3gof3r Mailing List](https://groups.google.com/forum/#!forum/s3gof3r)
