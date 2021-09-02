@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/rlmcpherson/s3gof3r/gof3r",
+	"ImportPath": "github.com/github/s3gof3r/gof3r",
 	"GoVersion": "go1.5.1",
 	"Packages": [
 		"github.com/jessevdk/go-flags"
