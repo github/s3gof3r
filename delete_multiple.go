@@ -80,7 +80,7 @@ func deleteMultiple(c *Config, b *Bucket, quiet bool, keys []string) (DeleteResu
 	if err != nil {
 		return DeleteResult{}, err
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 200 {
 		return DeleteResult{}, newRespError(resp)
 	}

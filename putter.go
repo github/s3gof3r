@@ -91,7 +91,7 @@ func newPutter(url url.URL, h http.Header, c *Config, b *Bucket) (p *putter, err
 	if err != nil {
 		return nil, err
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 200 {
 		return nil, newRespError(resp)
 	}
@@ -212,7 +212,7 @@ func (p *putter) putPart(part *part) error {
 	if err != nil {
 		return err
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 200 {
 		return newRespError(resp)
 	}
@@ -274,7 +274,7 @@ func (p *putter) Close() (err error) {
 			p.abort()
 			return
 		}
-		defer checkClose(resp.Body, err)
+		defer checkClose(resp.Body)
 		if resp.StatusCode != 200 {
 			p.abort()
 			return newRespError(resp)
@@ -346,7 +346,7 @@ func (p *putter) abort() {
 		logger.Printf("Error aborting multipart upload: %v\n", err)
 		return
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 204 {
 		logger.Printf("Error aborting multipart upload: %v", newRespError(resp))
 	}
@@ -393,7 +393,7 @@ func (p *putter) putMd5() (err error) {
 	if err != nil {
 		return
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 200 {
 		return newRespError(resp)
 	}

@@ -217,7 +217,7 @@ func listObjects(c *Config, b *Bucket, opts listObjectsOptions) (result *listBuc
 	if err != nil {
 		return nil, err
 	}
-	defer checkClose(resp.Body, err)
+	defer checkClose(resp.Body)
 	if resp.StatusCode != 200 {
 		return nil, newRespError(resp)
 	}
