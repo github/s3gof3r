@@ -779,7 +779,7 @@ func TestGetterAfterError(t *testing.T) {
 	}
 }
 
-var regionsTests = []struct {
+var goodRegionsTests = []struct {
 	domain string
 	region string
 	err    error
@@ -789,13 +789,38 @@ var regionsTests = []struct {
 	{domain: "s3-sa-east-1.amazonaws.com", region: "sa-east-1"},
 }
 
-func TestRegion(t *testing.T) {
-	for _, tt := range regionsTests {
+func TestGoodRegion(t *testing.T) {
+	for _, tt := range goodRegionsTests {
 		s3 := &S3{Domain: tt.domain}
 		region := s3.Region()
 		if region != tt.region {
 			t.Errorf("wrong region detected, got '%s', expected '%s'", region, tt.region)
 		}
+	}
+}
+
+var badRegionsTests = []struct {
+	domain string
+	region string
+	err    error
+}{
+	{domain: "bad-amazonaws.com", region: "sa-east-1"},
+	{domain: "s3-sss.amazonaws#com", region: "sa-east-1"},
+}
+
+// Given some bad domains as input
+// When the Region method is called on the domain
+// Then the method should panic because the domain is not recognized
+func TestBadRegion(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	for _, tt := range badRegionsTests {
+		s3 := &S3{Domain: tt.domain}
+		s3.Region()
 	}
 }
 
